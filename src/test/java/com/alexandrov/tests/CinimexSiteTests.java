@@ -19,8 +19,8 @@ import java.util.stream.Stream;
 @Owner("Artem Alexandrov")
 @Feature("UI тесты")
 @DisplayName("UI тесты для сайта cinimex")
-@Tags({@Tag("web"), @Tag("high"), @Tag("critical")})
-@Severity(SeverityLevel.CRITICAL)
+@Tags({@Tag("WEB"), @Tag("MEDIUM"), @Tag("NORMAL")})
+@Severity(SeverityLevel.NORMAL)
 public class CinimexSiteTests extends TestBase {
 
     MainPage mainPage = new MainPage();
@@ -33,8 +33,14 @@ public class CinimexSiteTests extends TestBase {
             , fileLocation = "src/test/resources/img/"
             , file = "1.png";
 
+    @Test
+    @DisplayName("Проверка лого сайта на 'параметры CSS'")
+    void cinimexLogoTest(){
 
-    @Tag("critical")
+        mainPage.openMainPage();
+        mainPage.chechLogoFontSize();
+    }
+
     @DisplayName("Проверка перехода в разделы сайта.")
     @ParameterizedTest(name = "Выполняется переход в раздел \"{0}\"")
     @CsvSource(value = {
@@ -73,7 +79,7 @@ public class CinimexSiteTests extends TestBase {
     }
 
     @CsvSource(value = {
-            "пресс, Результаты поиска"
+            "Вакансии, Список вакансий"
     })
 
     @DisplayName("Проверка работы поиска.")
@@ -101,14 +107,6 @@ public class CinimexSiteTests extends TestBase {
         mainPage.openMainPage();
         mainPage.cinimexCheckAddress(City);
         mainPage.cinimexCheckAddressResult(Address);
-    }
-
-    @Test
-    @DisplayName("Проверка лого сайта на 'параметры CSS'")
-    void cinimexLogoTest(){
-
-        mainPage.openMainPage();
-        mainPage.chechLogoFontSize();
     }
 
     @Test

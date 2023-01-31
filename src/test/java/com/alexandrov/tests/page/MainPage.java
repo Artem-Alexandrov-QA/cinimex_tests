@@ -21,38 +21,38 @@ public class MainPage {
 
 
     public MainPage openMainPage() {
-        step("Открытие главной страницы сайта \"cinimex\"", () ->
+        step("Открыть главную страницу сайта \"cinimex\"", () ->
                 open(""));
         return this;
     }
 
     public MainPage goToPage(String name) {
-        step(String.format("Переход на страницу раздела \"%s\"", name), () ->
+        step(String.format("Перейти на страницу раздела \"%s\"", name), () ->
                 $(byText(name)).click());
         return this;
     }
 
     public MainPage checkPageTitle(String disc) {
-        step(String.format("Проверка заголовка на странице раздела \"%s\"", disc), () ->
+        step(String.format("Проверить заголовок на странице раздела \"%s\"", disc), () ->
                 $(".head-title").shouldHave(text(disc)));
         return this;
     }
 
     public MainPage choiceLanguages(String lang) {
-        step(String.format("Выбор языка \"%s\"", lang), () -> {
+        step(String.format("Выбрать язык \"%s\"", lang), () -> {
             eng.click();
         });
         return this;
     }
 
     public MainPage checkPageContent(String lang, List<String> expectedTitle) {
-        step(String.format("Проверка отображения разделов %s", expectedTitle), () ->
+        step(String.format("Проверить отображение разделов %s", expectedTitle), () ->
                 $$(".header__wrapper").filter(visible).shouldHave(CollectionCondition.texts(expectedTitle)));
         return this;
     }
 
     public MainPage searchInput(String testData) {
-        step(String.format("Ввод поискового запроса \"%s\"", testData), () -> {
+        step(String.format("Ввести поисковой запрос \"%s\"", testData), () -> {
             $(".icon-search").click();
             $x("/html/body/header/div[2]/div/form/div/input").setValue(testData).pressEnter();
         });
@@ -61,14 +61,14 @@ public class MainPage {
 
 
     public MainPage checkSearchResult(String expectedResult) {
-        step(String.format("Проверка, что результат поиска содержит ответ \"%s\"", expectedResult), () ->
-                $(".text-center").shouldHave(text(expectedResult)));
+        step(String.format("Проверить, что результат поиска содержит ответ \"%s\"", expectedResult), () ->
+                $x("/html/body/main/section/div[3]/div[1]/div[1]/div[1]/h4").shouldHave(text(expectedResult)));
         return this;
     }
 
 
     public MainPage cinimexCheckAddress(String City) {
-        step(String.format("Выбор города \"%s\"", City), () -> {
+        step(String.format("Выбрать город \"%s\"", City), () -> {
             $(byText("Контакты")).click();
             $(byText(City)).click();
         });
@@ -77,13 +77,13 @@ public class MainPage {
 
 
     public MainPage cinimexCheckAddressResult(String Address) {
-        step(String.format("Проверка адреса города \"%s\"", Address), () ->
+        step(String.format("Проверить адрес города \"%s\"", Address), () ->
                 $(".map-block__text-wrapper").shouldHave(text(Address)));
         return this;
     }
 
     public MainPage chechLogoFontSize(){
-        step(String.format("Проверка лого сайта 'параметры СSS'"), () ->
+        step(String.format("Проверить лого сайта 'параметры СSS'"), () ->
                 $(".logo").shouldHave(cssValue("font-weight", "400")));
                 $(".logo").shouldHave(cssValue("font-size", "16px"));
                 $(".logo").shouldHave(cssValue("text-align", "left"));
@@ -95,7 +95,7 @@ public class MainPage {
     }
 
     public MainPage goDiscussyourProject() {
-        step(String.format("Переход на страницу раздела Обсудить проект"), () ->
+        step(String.format("Открыть форму заполнения 'Обсудить проект' "), () ->
                 discussyourProject.click());
         return this;
     }
@@ -119,7 +119,7 @@ public class MainPage {
     }
 
     public MainPage setPictureImg(File file) {
-        step(String.format("Добавить файл png"), () ->
+        step(String.format("Добавить файл png. "), () ->
                 picture.uploadFile(file));
         return this;
     }
