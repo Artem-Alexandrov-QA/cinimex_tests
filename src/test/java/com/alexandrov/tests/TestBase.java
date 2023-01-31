@@ -1,28 +1,35 @@
 package com.alexandrov.tests;
 import com.alexandrov.attach.Attach;
-import com.alexandrov.config.Browser;
-import com.alexandrov.config.ConfigReader;
-import com.alexandrov.config.ProjectConfiguration;
-import com.alexandrov.config.WebConfig;
+import com.alexandrov.config.CredentialsConfig;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit5.BrowserPerTestStrategyExtension;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
-
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 @ExtendWith({BrowserPerTestStrategyExtension.class})
 public class TestBase {
-    private static final WebConfig webConfig = ConfigReader.Instance.read();
-    private static final ProjectConfiguration projectConfiguration = new ProjectConfiguration(webConfig);
+
+    public static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
     @BeforeAll
-    public static void setUp() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        projectConfiguration.webConfig();
+    static void beforeAll() {
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        Configuration.baseUrl = "https://www.cinimex.ru/";
+        Configuration.browserSize = "1920x1080";
+        Configuration.remote = config.server();
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC",true);
+        capabilities.setCapability("enableVideo",true);
+        Configuration.browserCapabilities = capabilities;
     }
 
     @AfterEach
