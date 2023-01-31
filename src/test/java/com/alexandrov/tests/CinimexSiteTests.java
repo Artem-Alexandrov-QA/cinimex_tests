@@ -1,10 +1,7 @@
 package com.alexandrov.tests;
 import com.alexandrov.tests.page.MainPage;
 import com.github.javafaker.Faker;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -21,6 +18,8 @@ import java.util.stream.Stream;
 @DisplayName("UI тесты для сайта cinimex")
 @Tags({@Tag("WEB"), @Tag("MEDIUM"), @Tag("NORMAL")})
 @Severity(SeverityLevel.NORMAL)
+@Link(name = "cinimex", url = "https://www.cinimex.ru/")
+
 public class CinimexSiteTests extends TestBase {
 
     MainPage mainPage = new MainPage();
@@ -33,7 +32,9 @@ public class CinimexSiteTests extends TestBase {
             , fileLocation = "src/test/resources/img/"
             , file = "1.png";
 
+
     @Test
+    @Tag("logo")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
     void cinimexLogoTest(){
 
@@ -41,7 +42,9 @@ public class CinimexSiteTests extends TestBase {
         mainPage.chechLogoFontSize();
     }
 
+
     @DisplayName("Проверка перехода в разделы сайта.")
+    @Tag("page")
     @ParameterizedTest(name = "Выполняется переход в раздел \"{0}\"")
     @CsvSource(value = {
             "О нас, Опытная команда для решения сложных задач",
@@ -78,10 +81,12 @@ public class CinimexSiteTests extends TestBase {
         mainPage.checkPageContent(lang, expectedTitle);
     }
 
+
     @CsvSource(value = {
             "Вакансии, Список вакансий"
     })
 
+    @Tag("search")
     @DisplayName("Проверка работы поиска.")
     @ParameterizedTest(name = "Результаты поиска содержат текст \"{1}\" для запроса \"{0}\"")
     void cinimexSearch(String testData, String expectedResult) {
@@ -91,6 +96,7 @@ public class CinimexSiteTests extends TestBase {
         mainPage.checkSearchResult(expectedResult);
     }
 
+    @Tag("address")
     @CsvSource(value = {
             "Москва ; 115184, Москва, ул. Большая Татарская, д. 35, стр. 3",
             "Санкт-Петербург; 196084, Санкт-Петербург, ул. Ташкентская, д. 4, корп. 2 У, 1 этаж, офис № 1",
@@ -109,7 +115,9 @@ public class CinimexSiteTests extends TestBase {
         mainPage.cinimexCheckAddressResult(Address);
     }
 
+
     @Test
+    @Tag("form")
     @DisplayName("Проверка заполнения формы 'Обсудить проект'")
     void cinimexDiscussYourProject(){
 

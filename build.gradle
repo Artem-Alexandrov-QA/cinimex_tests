@@ -79,4 +79,14 @@ tasks.withType(Test) {
     }
 }
 
+task tags_tests (type: Test) {
+    useJUnitPlatform {
+        includeTags "form"
+        includeTags "search"
+        includeTags "page"
+        includeTags "logo"
+        includeTags "address"
+    }
+}
+
 
