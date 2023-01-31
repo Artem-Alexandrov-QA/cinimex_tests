@@ -1,8 +1,8 @@
 {
   "base": {
     "project": "${JOB_BASE_NAME}",
-    "environment": "some env",
-    "comment": "some comment",
+    "environment": "Dev",
+    "comment": "Report tests",
     "reportLink": "${BUILD_URL}",
     "language": "en",
     "messenger": "telegram",
