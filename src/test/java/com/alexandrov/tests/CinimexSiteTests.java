@@ -33,6 +33,7 @@ public class CinimexSiteTests extends TestBase {
             , file = "1.png";
 
 
+    @AllureId("14666")
     @Test
     @Tag("logo")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
