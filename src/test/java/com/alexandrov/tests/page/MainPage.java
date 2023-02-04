@@ -19,6 +19,7 @@ public class MainPage {
             userQuestion = $("#form-5-SIMPLE_QUESTION_131"),
             eng = $(".lang");
 
+
     public MainPage openMainPage() {
         step("Открыть главную страницу сайта \"cinimex\"", () ->
                 open(""));
@@ -58,11 +59,13 @@ public class MainPage {
         return this;
     }
 
+
     public MainPage checkSearchResult(String expectedResult) {
         step(String.format("Проверить, что результат поиска содержит ответ \"%s\"", expectedResult), () ->
                 $x("/html/body/main/section/div[3]/div[1]/div[1]/div[1]/h4").shouldHave(text(expectedResult)));
         return this;
     }
+
 
     public MainPage cinimexCheckAddress(String City) {
         step(String.format("Выбрать город \"%s\"", City), () -> {
@@ -71,6 +74,7 @@ public class MainPage {
         });
         return this;
     }
+
 
     public MainPage cinimexCheckAddressResult(String Address) {
         step(String.format("Проверить адрес города \"%s\"", Address), () ->
@@ -133,3 +137,11 @@ public class MainPage {
         return this;
     }
 }
+
+
+
+
+
+
+
+
