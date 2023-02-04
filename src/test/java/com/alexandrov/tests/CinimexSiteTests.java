@@ -32,8 +32,7 @@ public class CinimexSiteTests extends TestBase {
             , fileLocation = "src/test/resources/img/"
             , file = "1.png";
 
-
-    @AllureId("14666") 
+    @AllureId("14666")
     @Test
     @Tag("logo")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
@@ -42,7 +41,6 @@ public class CinimexSiteTests extends TestBase {
         mainPage.openMainPage();
         mainPage.chechLogoFontSize();
     }
-
 
     @AllureId("14671")
     @DisplayName("Проверка перехода в разделы сайта.")
@@ -84,7 +82,6 @@ public class CinimexSiteTests extends TestBase {
         mainPage.checkPageContent(lang, expectedTitle);
     }
 
-
     @AllureId("14673")
     @CsvSource(value = {
             "Вакансии, Список вакансий"
@@ -119,7 +116,6 @@ public class CinimexSiteTests extends TestBase {
         mainPage.cinimexCheckAddress(City);
         mainPage.cinimexCheckAddressResult(Address);
     }
-
 
     @AllureId("14672")
     @Test
