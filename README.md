@@ -14,17 +14,17 @@
 ## :computer: Использованный стек технологий
 
 <p align="center">
-<img width="6%" title="Java" src="src/test/resources/img/Java.png">
-<img width="6%" title="Allure Report" src="src/test/resources/img/Allure.png">
-<img width="6%" title="Allure TestOps" src="src/test/resources/img/AllureTestops.png">
-<img width="6%" title="IntelliJ IDEA" src="src/test/resources/img/idea.png">
-<img width="6%" title="Selenide" src="src/test/resources/img/selenide.png">
-<img width="6%" title="Selenoid" src="src/test/resources/img/selenoid.png">
-<img width="6%" title="Gradle" src="src/test/resources/img/gradle.png">
-<img width="6%" title="JUnit5" src="src/test/resources/img/junit.png">
-<img width="6%" title="GitHub" src="src/test/resources/img/git.png">
-<img width="6%" title="Jenkins" src="src/test/resources/img/JenkinsLogo.png">
-<img width="6%" title="Telegram" src="src/test/resources/img/telegram.png">
+<img width="6%" title="Java" src="src/test/resources/img/logo/Java.svg">
+<img width="6%" title="Allure Report" src="src/test/resources/img/logo/Allure_Report.svg">
+<img width="6%" title="Allure TestOps" src="src/test/resources/img/logo/AllureTestOps.svg">
+<img width="6%" title="IntelliJ IDEA" src="src/test/resources/img/logo/Intelij_IDEA.svg">
+<img width="6%" title="Selenide" src="src/test/resources/img/logo/Selenide.svg">
+<img width="6%" title="Selenoid" src="src/test/resources/img/logo/Selenoid.svg">
+<img width="6%" title="Gradle" src="src/test/resources/img/logo/Gradle.svg">
+<img width="6%" title="JUnit5" src="src/test/resources/img/logo/JUnit5.svg">
+<img width="6%" title="GitHub" src="src/test/resources/img/logo/GitHub.svg">
+<img width="6%" title="Jenkins" src="src/test/resources/img/logo/Jenkins.svg">
+<img width="6%" title="Telegram" src="src/test/resources/img/logo/Telegram.svg">
 </p>
 
 Параметризованные автотесты написаны на <code>Java</code> с использованием <code>Gradle</code> и <code>JUnit 5</code>.
