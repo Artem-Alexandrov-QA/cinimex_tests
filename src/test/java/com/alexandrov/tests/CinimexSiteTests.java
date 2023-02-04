@@ -33,7 +33,7 @@ public class CinimexSiteTests extends TestBase {
             , file = "1.png";
 
 
-    @AllureId("14666")
+    @AllureId("14666") 
     @Test
     @Tag("logo")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
@@ -44,6 +44,7 @@ public class CinimexSiteTests extends TestBase {
     }
 
 
+    @AllureId("14671")
     @DisplayName("Проверка перехода в разделы сайта.")
     @Tag("page")
     @ParameterizedTest(name = "Выполняется переход в раздел \"{0}\"")
@@ -72,6 +73,7 @@ public class CinimexSiteTests extends TestBase {
         );
     }
 
+    @AllureId("14674")
     @DisplayName("Проверка наличия разделов сайта на Англ.языке.")
     @MethodSource
     @ParameterizedTest(name = "Для языка {0} отображаются разделы {1}")
@@ -83,6 +85,7 @@ public class CinimexSiteTests extends TestBase {
     }
 
 
+    @AllureId("14673")
     @CsvSource(value = {
             "Вакансии, Список вакансий"
     })
@@ -97,6 +100,7 @@ public class CinimexSiteTests extends TestBase {
         mainPage.checkSearchResult(expectedResult);
     }
 
+    @AllureId("14675")
     @Tag("address")
     @CsvSource(value = {
             "Москва ; 115184, Москва, ул. Большая Татарская, д. 35, стр. 3",
@@ -117,6 +121,7 @@ public class CinimexSiteTests extends TestBase {
     }
 
 
+    @AllureId("14672")
     @Test
     @Tag("form")
     @DisplayName("Проверка заполнения формы 'Обсудить проект'")
