@@ -75,66 +75,66 @@ gradle clean test -Denv=remote
 * <code>VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>109.0</code>.
 * <code>SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1024x768</code>.
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/test/resources/img/JenkinsLogo.png"> Сборка в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/test/resources/img/logo/Jenkins.svg"> Сборка в Jenkins
 ### <a target="_blank" href="https://jenkins.autotests.cloud/job/cinimex_jenkins/build?delay=0sec">*Jenkins job*</a>
 
 <p align="center">
-<img title="Jenkins Build" src="src/test/resources/img/JenkinsJob.png">
+<img title="Jenkins Build" src="src/test/resources/img/screenshots/jenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/test/resources/img/Allure.png"> Allure-отчет
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/test/resources/img/logo/Allure_Report.svg"> Allure-отчет
 ### <a target="_blank" href="https://jenkins.autotests.cloud/job/cinimex_jenkins/16/allure/">*Overview*</a>
 
 <p align="center">
-<img title="Allure Overview" src="src/test/resources/img/Allure2.png">
+<img title="Allure Overview" src="src/test/resources/img/screenshots/allureReportMain.png">
 </p>
 
 ### *Результат прохождения параметризованных тестов с описанием  и шагами выполнения*
 
 <p align="center">
-<img title="Test Results in Alure" src="src/test/resources/img/allurereport.png">
+<img title="Test Results in Alure" src="src/test/resources/img/screenshots/allureReportTests.png">
 </p>
 
 
-## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/AllureTestops.png"> Интеграция с Allure TestOps
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
 ### *Allure TestOps* <a target="_blank" href="https://allure.autotests.cloud/project/1839/dashboards">*Dashboard*</a>
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="src/test/resources/img/TestopsDash.png">  
+<img title="Allure TestOps Dashboard" src="src/test/resources/img/screenshots/allureTestOpsDashboard.png">  
 </p>  
 
 ### *Тест кейсы*
 
 <p align="center">  
-<img title="Allure TestOps Tests" src="src/test/resources/img/тк.png">  
+<img title="Allure TestOps Tests" src="src/test/resources/img/screenshots/allureTestOpsTestCases.png">  
 </p>
 
 ### *Запуски*
 
 <p align="center">  
-<img title="Allure TestOps Tests" src="src/test/resources/img/launch.png">  
+<img title="Allure TestOps Tests" src="src/test/resources/img/screenshots/allureTestOpsLaunches.png">  
 </p>
 
 
-## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/jiralogo.png"> Интеграция с Jira
-### *Link* <a target="_blank" href="https://jira.autotests.cloud/browse/AUTO-1483">**Jira**</a>
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/logo/jiraLogo.png"> Интеграция с Jira
+### Link <a target="_blank" href="https://jira.autotests.cloud/browse/AUTO-1483">**Jira**</a>
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="src/test/resources/img/Jira.png">  
+<img title="Jira" src="src/test/resources/img/screenshots/jira.png">  
 </p>  
 
 
-## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/telegram.png"> Уведомление в Telegram с использованием бота
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/logo/Telegram.svg"> Уведомление в Telegram с использованием бота
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически отправляет сообщение с отчетом прохождения тестов.
 
 <p align="center">
-<img width="70%" title="Telegram Notifications" src="src/test/resources/img/Bot.png">
+<img width="70%" title="Telegram Notifications" src="src/test/resources/img/screenshots/notificationTelegram.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/test/resources/img/selenoid.png"> Видео запуска одного из тестов в Selenoid
 
 Для каждого теста выполняется запись видео. Ниже представлен пример видео прохождения теста.
 <p align="center">
-  <img title="Selenoid Video" src="src/test/resources/img/video.gif">
+  <img title="Selenoid Video" src="src/test/resources/img/gif/video.gif">
 </p>
