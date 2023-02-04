@@ -116,8 +116,8 @@ gradle clean test -Denv=remote
 </p>
 
 
-## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/logo/jiraLogo.png"> Интеграция с Jira
-### Link <a target="_blank" href="https://jira.autotests.cloud/browse/AUTO-1483">**Jira**</a>
+## <img width="4%" style="vertical-align:middle" title="Telegram" src="src/test/resources/img/logo/jiraLogo.png"> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/AUTO-1483">**Jira**</a>
+
 
 <p align="center">  
 <img title="Jira" src="src/test/resources/img/screenshots/jira.png">  
@@ -132,7 +132,7 @@ gradle clean test -Denv=remote
 <img width="70%" title="Telegram Notifications" src="src/test/resources/img/screenshots/notificationTelegram.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/test/resources/img/selenoid.png"> Видео запуска одного из тестов в Selenoid
+## <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/test/resources/img/logo/Selenoid.svg"> Видео запуска одного из тестов в Selenoid
 
 Для каждого теста выполняется запись видео. Ниже представлен пример видео прохождения теста.
 <p align="center">
