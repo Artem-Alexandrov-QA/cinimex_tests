@@ -1,58 +1,64 @@
 package com.alexandrov.tests;
+
 import com.alexandrov.tests.page.MainPage;
 import com.github.javafaker.Faker;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
+
 import java.io.File;
 import java.util.List;
 import java.util.stream.Stream;
 
-
-@Owner("Artem Alexandrov")
 @Feature("UI тесты")
+@Owner("Artem Alexandrov")
+@Severity(SeverityLevel.NORMAL)
 @DisplayName("UI тесты для сайта cinimex")
 @Tags({@Tag("WEB"), @Tag("MEDIUM"), @Tag("NORMAL")})
-@Severity(SeverityLevel.NORMAL)
-@Link(name = "cinimex", url = "https://www.cinimex.ru/")
-
+@Link(name = "Cinimex", url = "https://www.cinimex.ru/")
 public class CinimexSiteTests extends TestBase {
 
-    MainPage mainPage = new MainPage();
-    Faker faker = new Faker();
-    int phoneNumberLength = 10;
-    String firstName = faker.name().firstName()
-            , userEmail = faker.internet().emailAddress()
-            , mobileNumber = faker.phoneNumber().subscriberNumber(phoneNumberLength)
-            , question = faker.harryPotter().location()
-            , fileLocation = "src/test/resources/img/"
-            , file = "1.png";
+    private static int PHONE_NUMBER_LENGTH = 10;
+    private MainPage mainPage = new MainPage();
+    private Faker faker = new Faker();
+    private String file;
+    private String firstName;
+    private String userEmail;
+    private String mobileNumber;
+    private String question;
+    private String fileLocation;
 
-    @AllureId("14666")
+    @BeforeEach
+    void setUp() {
+        file = "1.png";
+        firstName = faker.name().firstName();
+        userEmail = faker.internet().emailAddress();
+        mobileNumber = faker.phoneNumber().subscriberNumber(PHONE_NUMBER_LENGTH);
+        question = faker.harryPotter().location();
+        fileLocation = "src/test/resources/img/";
+    }
+
     @Test
     @Tag("logo")
+    @AllureId("14666")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
-    void cinimexLogoTest(){
-
+    void cinimexLogoTest() {
         mainPage.openMainPage();
         mainPage.chechLogoFontSize();
     }
 
+    @Tag("page")
     @AllureId("14671")
     @DisplayName("Проверка перехода в разделы сайта.")
-    @Tag("page")
     @ParameterizedTest(name = "Выполняется переход в раздел \"{0}\"")
     @CsvSource(value = {
             "О нас, Опытная команда для решения сложных задач",
             "Решения, Решения и услуги",
             "Пресс-центр, Пресс-центр",
             "Проекты, Проекты",
-            "Контакты, Контакты",
-    })
+            "Контакты, Контакты",})
+
     void testWithCsvSource(String name, String disc) {
         mainPage.openMainPage();
         mainPage.goToPage(name);
@@ -67,64 +73,54 @@ public class CinimexSiteTests extends TestBase {
                         "Projects\n" +
                         "Contacts\n" +
                         "Discuss your project\n" +
-                        "По-русски"))
-        );
+                        "По-русски")));
     }
 
+    @MethodSource
     @AllureId("14674")
     @DisplayName("Проверка наличия разделов сайта на Англ.языке.")
-    @MethodSource
     @ParameterizedTest(name = "Для языка {0} отображаются разделы {1}")
     void cinimexSiteMenuTest(String lang, List<String> expectedTitle) {
-
         mainPage.openMainPage();
         mainPage.choiceLanguages(lang);
         mainPage.checkPageContent(lang, expectedTitle);
     }
 
-    @AllureId("14673")
-    @CsvSource(value = {
-            "Вакансии, Список вакансий"
-    })
-
     @Tag("search")
+    @AllureId("14673")
     @DisplayName("Проверка работы поиска.")
+    @CsvSource(value = {"Вакансии, Список вакансий"})
     @ParameterizedTest(name = "Результаты поиска содержат текст \"{1}\" для запроса \"{0}\"")
     void cinimexSearch(String testData, String expectedResult) {
-
         mainPage.openMainPage();
         mainPage.searchInput(testData);
         mainPage.checkSearchResult(expectedResult);
     }
 
-    @AllureId("14675")
     @Tag("address")
+    @AllureId("14675")
     @CsvSource(value = {
             "Москва ; 115184, Москва, ул. Большая Татарская, д. 35, стр. 3",
             "Санкт-Петербург; 196084, Санкт-Петербург, ул. Ташкентская, д. 4, корп. 2 У, 1 этаж, офис № 1",
             "Оренбург; 460006, Оренбург, ул. Комсомольская, д. 133, 3 этаж",
             "Воронеж; 394026, Воронеж, проспект Труда, 65и, 3 этаж",
             "Самара; 443010, г. Самара, ул. Красноармейская, д.1Б, 3 этаж, офис. 313"
-    },
-    delimiter = ';')
-
+    }, delimiter = ';')
     @DisplayName("Проверка адресов в городах")
     @ParameterizedTest(name = "Офис в городе \"{0}\" находится по адресу \"{1}\"")
     void cinimexCheckAddressCity(String City, String Address) {
-
         mainPage.openMainPage();
         mainPage.cinimexCheckAddress(City);
         mainPage.cinimexCheckAddressResult(Address);
     }
 
-    @AllureId("14672")
     @Test
     @Tag("form")
+    @AllureId("14672")
     @DisplayName("Проверка заполнения формы 'Обсудить проект'")
-    void cinimexDiscussYourProject(){
-
+    void cinimexDiscussYourProject() {
         mainPage.openMainPage();
-        mainPage.goDiscussyourProject();
+        mainPage.goDiscussYourProject();
         mainPage.typeFirstName(firstName);
         mainPage.mobileNumber(mobileNumber);
         mainPage.userEmail(userEmail);
