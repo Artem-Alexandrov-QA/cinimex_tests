@@ -11,14 +11,13 @@ import static io.qameta.allure.Allure.step;
 
 public class MainPage {
 
-    private SelenideElement
-            firstName = $("#form-5-SIMPLE_QUESTION_538"),
-            discussyourProject = $(byText("Обсудить проект")),
-            mobileNumb = $("#form-5-SIMPLE_QUESTION_243"),
-            email = $("#form-5-SIMPLE_QUESTION_190"),
-            picture = $("#form-5-FILE"),
-            userQuestion = $("#form-5-SIMPLE_QUESTION_131"),
-            eng = $(".lang");
+    private final SelenideElement firstName = $("#form-5-SIMPLE_QUESTION_538");
+    private final SelenideElement discussYourProject = $(byText("Обсудить проект"));
+    private final SelenideElement mobileNumb = $("#form-5-SIMPLE_QUESTION_243");
+    private final SelenideElement email = $("#form-5-SIMPLE_QUESTION_190");
+    private final SelenideElement picture = $("#form-5-FILE");
+    private final SelenideElement userQuestion = $("#form-5-SIMPLE_QUESTION_131");
+    private final SelenideElement eng = $(".lang");
 
     public MainPage openMainPage() {
         step("Открыть главную страницу сайта \"cinimex\"", () -> open(""));
@@ -64,8 +63,7 @@ public class MainPage {
     public MainPage cinimexCheckAddress(String City) {
         step(String.format("Выбрать город \"%s\"", City), () -> {
             $(byText("Контакты")).click();
-            $(byText(City)).click();
-        });
+            $(byText(City)).click();});
         return this;
     }
 
@@ -88,7 +86,7 @@ public class MainPage {
     }
 
     public MainPage goDiscussYourProject() {
-        step("Открыть форму заполнения 'Обсудить проект'", () -> discussyourProject.click());
+        step("Открыть форму заполнения 'Обсудить проект'", () -> discussYourProject.click());
         return this;
     }
 
@@ -124,11 +122,3 @@ public class MainPage {
         return this;
     }
 }
-
-
-
-
-
-
-
-
