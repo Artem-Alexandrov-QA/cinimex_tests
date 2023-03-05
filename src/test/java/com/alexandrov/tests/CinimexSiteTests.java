@@ -41,7 +41,7 @@ public class CinimexSiteTests extends TestBase {
 
     @Test
     @Tag("logo")
-    @AllureId("14666")
+    @AllureId("146666")
     @DisplayName("Проверка лого сайта на 'параметры CSS'")
     void cinimexLogoTest() {
         mainPage.openMainPage();
