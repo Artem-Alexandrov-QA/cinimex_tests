@@ -1,5 +1,9 @@
 package com.alexandrov.tests;
 
+import com.alexandrov.annotation.JiraIssue;
+import com.alexandrov.annotation.JiraIssues;
+import com.alexandrov.annotation.Layer;
+import com.alexandrov.annotation.Microservice;
 import com.alexandrov.tests.page.MainPage;
 import com.github.javafaker.Faker;
 import io.qameta.allure.*;
@@ -11,9 +15,12 @@ import java.io.File;
 import java.util.List;
 import java.util.stream.Stream;
 
+@Layer("web")
 @Feature("UI тесты")
 @Owner("Artem Alexandrov")
 @Severity(SeverityLevel.NORMAL)
+@JiraIssues({@JiraIssue("696")})
+@Microservice("fe-root-client-ui")
 @DisplayName("UI тесты для сайта cinimex")
 @Tags({@Tag("WEB"), @Tag("MEDIUM"), @Tag("NORMAL")})
 @Link(name = "Cinimex", url = "https://www.cinimex.ru/")
